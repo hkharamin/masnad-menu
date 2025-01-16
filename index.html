@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مسند الحارة</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f3e9;
+            color: #333;
+        }
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 16px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        .header h1 {
+            font-size: 1.8em;
+            color: #6a4e3f;
+        }
+        .header h2 {
+            font-size: 1.2em;
+            color: #a76d60;
+        }
+        .tabs {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            background-color: #e7dccd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .tabs button {
+            flex: 1;
+            padding: 10px;
+            font-size: 1em;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .tabs button.active {
+            background-color: #d6c4b1;
+            color: #6a4e3f;
+            font-weight: bold;
+        }
+        .tabs button:hover {
+            background-color: #d6c4b1;
+        }
+        .menu {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .menu-item {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.2s;
+            margin-bottom: 5px;
+        }
+        .menu-item img {
+            width: 135px;
+            height: 135px;
+            object-fit: cover;
+        }
+        .menu-item:hover {
+            transform: translateY(-4px);
+        }
+        .menu-item .details {
+            flex: 1;
+            padding: 8px;
+        }
+        .menu-item .details h3 {
+            margin: 0;
+            font-size: 1em;
+            color: #6a4e3f;
+        }
+        .menu-item .details p {
+            margin: 4px 0 0;
+            font-size: 0.9em;
+            color: #a76d60;
+        }
+        .menu-item .price {
+            padding: 8px;
+            font-size: 1em;
+            font-weight: bold;
+            color: #6a4e3f;
+            background-color: #e7dccd;
+        }
+        .price-options {
+    margin-top: 8px;
+    font-size: 0.9em;
+    color: #6a4e3f;
+}
+.price-options span {
+    display: inline-block;
+    margin-right: 10px;
+}
+        @media (min-width: 600px) {
+            .menu {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            .menu-item {
+                width: calc(50% - 8px);
+                margin-bottom: 16px;
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.tabs button');
+            const menuSections = document.querySelectorAll('.menu-section');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+
+                    const target = tab.getAttribute('data-target');
+                    menuSections.forEach(section => {
+                        section.style.display = section.id === target ? 'block' : 'none';
+                    });
+                });
+            });
+
+            // Set default tab
+            tabs[0].click();
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>مسند الحارة</h1>
+            <h2>MASNAD ALHARA</h2>
+        </div>
+
+        <div class="tabs">
+            <button class="active" data-target="drinks">المشروبات</button>
+            <button data-target="salty">الأطعمة المالحة</button>
+            <button data-target="sweet">الأطعمة الحلوة</button>
+        </div>
+
+        <div id="drinks" class="menu-section menu">
+            <div class="menu-item">
+                <img src="https://cdn.salla.sa/VjnbQ/kbM4BRah5gRXH4T4WrvsPt8Q8wZVTxx1vEwZsw07.jpg" alt="قهوة عربية">
+                <div class="details">
+                    <h3>قهوة عربية</h3>
+                    <p>قهوة تقليدية غنية بنكهة الهيل والزعفران.</p>
+                    <p class="price-options">
+                        <span>كوب: 7 ريال</span> | 
+                        <span>ابريق: 27 ريال</span>
+                    </p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://zfloos-production-storage.s3.eu-central-1.amazonaws.com/public/upload/companies/1283/products/1614811630_604011ee67b01.jpg" alt="شاي أخضر">
+                <div class="details">
+                    <h3>شاي أخضر</h3>
+                    <p>شاي صحي بنكهة منعشة ومهدئة.</p>
+                    <p class="price-options">
+                        <span>كوب: 8 ريال</span> | 
+                        <span>زجاج سفري: 12 ريال</span> | 
+                        <span>ابريق: 16 ريال</span>
+                    </p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://cdn.salla.sa/ZZaYp/wbCoxLwpYsM0XkEGkdHtSEisxrJVPEsVCREwElum.jpg" alt="شاي أحمر">
+                <div class="details">
+                    <h3>شاي أحمر</h3>
+                    <p>شاي تقليدي غني بالمذاق.</p>
+                    <p class="price-options">
+                        <span>كوب: 5 ريال</span> | 
+                        <span>زجاج سفري: 7 ريال</span> | 
+                        <span>ابريق: 15 ريال</span>
+                    </p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://static.webteb.net/images/content/tbl_articles_article_23709_1951fc15caf-e3cb-4880-8017-e209529dbf90.jpg" alt="شاي طائفي">
+                <div class="details">
+                    <h3>شاي طائفي</h3>
+                    <p>شاي مميز بنكهات الطائف العطرة.</p>
+                    <p class="price-options">
+                        <span>كوب: 7 ريال</span> | 
+                        <span>زجاج سفري: 10 ريال</span> | 
+                        <span>ابريق: 18 ريال</span>
+                    </p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://ashaay.com/wp-content/uploads/2023/08/%D8%B4%D8%A7%D9%8A-%D8%A5%D9%8A%D8%B1%D9%84-%D8%BA%D8%B1%D8%A7%D9%8A.png" alt="شاي مخلوط">
+                <div class="details">
+                    <h3>شاي مخلوط</h3>
+                    <p>مزيج مثالي من أنواع الشاي بنكهة مميزة.</p>
+                    <p class="price-options">
+                        <span>كوب: 7 ريال</span> | 
+                        <span>زجاج سفري: 10 ريال</span> | 
+                        <span>ابريق: 18 ريال</span>
+                    </p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://cdn.salla.sa/rZOlw/uHUyKs0GH6YfQ6d6AtciEPa6zDbDV6WYIm9Jy5t5.jpg" alt="شاي كرك">
+                <div class="details">
+                    <h3>شاي كرك</h3>
+                    <p>شاي بالبهارات والحليب.</p>
+                    <p class="price-options">
+                        <span>كوب: 7 ريال</span> | 
+                        <span>زجاج سفري: 10 ريال</span> | 
+                        <span>ابريق: 18 ريال</span>
+                    </p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://cdn.salla.sa/QezNV/6TTJCIyGrAcbNv2zOPuSuqwwBSE09xPZE7rYkoKG.png" alt="ماء">
+                <div class="details">
+                    <h3>ماء</h3>
+                    <p class="price-options">
+                        <span>1 ريال</span> 
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+
+        <div id="salty" class="menu-section menu" style="display: none;">
+            <div class="menu-item">
+                <img src="https://d2wdttfod93r0n.cloudfront.net/Recipes/Spinach-and-Feta-Sambousa3212024101259AM.jpg" alt="سمبوسك">
+                <div class="details">
+                    <h3>سمبوسة دجاج</h3>
+                    <p>مقرمشة محشوة بالدجاج المفروم والتوابل</p>
+                </div>
+                <div class="price">10 ريال</div>
+            </div>
+        
+            <div class="menu-item">
+                <img src="https://d2wdttfod93r0n.cloudfront.net/Recipes/Spinach-and-Feta-Sambousa3212024101259AM.jpg" alt="سمبوسك">
+                <div class="details">
+                    <h3>سمبوسة لحم</h3>
+                    <p>مقرمشة محشوة باللحم المفروم والتوابل</p>
+                </div>
+                <div class="price">12 ريال</div>
+            </div>
+        
+            <div class="menu-item">
+                <img src="https://d2wdttfod93r0n.cloudfront.net/Recipes/Spinach-and-Feta-Sambousa3212024101259AM.jpg" alt="سمبوسك">
+                <div class="details">
+                    <h3>سمبوسة خضار</h3>
+                    <p>مقرمشة محشوة بالخضروات والتوابل</p>
+                </div>
+                <div class="price">9 ريال</div>
+            </div>
+        
+            <div class="menu-item">
+                <img src="https://d2wdttfod93r0n.cloudfront.net/Recipes/Spinach-and-Feta-Sambousa3212024101259AM.jpg" alt="سمبوسك">
+                <div class="details">
+                    <h3>سمبوسة جبن</h3>
+                    <p>مقرمشة محشوة بالجبن الطري</p>
+                </div>
+                <div class="price">8 ريال</div>
+            </div>
+        
+            <div class="menu-item">
+                <img src="https://i.ytimg.com/vi/VfY3PBN-AbA/maxresdefault.jpg" alt="سمبوسك">
+                <div class="details">
+                    <h3>ميني بيتزا</h3>
+                    <p>فطائر صغيرة محشوة بالصلصة والجبن مع التوابل</p>
+                </div>
+                <div class="price">8 ريال</div>
+            </div>
+        
+            <div class="menu-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrcm1jeqUcvS614JPPEvkyoMGemfaJZjR5qA&s" alt="سمبوسك">
+                <div class="details">
+                    <h3>فطاير جبنة شيدر</h3>
+                    <p>فطائر مقرمشة محشوة بالجبن الشيدر الذائب</p>
+                </div>
+                <div class="price">8 ريال</div>
+            </div>
+        
+            <div class="menu-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrcm1jeqUcvS614JPPEvkyoMGemfaJZjR5qA&s" alt="سمبوسك">
+                <div class="details">
+                    <h3>فطاير جبنة بيضاء</h3>
+                    <p>فطائر مقرمشة محشوة بالجبن الأبيض الطري</p>
+                </div>
+                <div class="price">8 ريال</div>
+            </div>
+        
+            <div class="menu-item">
+                <img src="https://images.deliveryhero.io/image/hungerstation/menus/product/hsimg-493778?width=1440&quality=75" alt="سمبوسك">
+                <div class="details">
+                    <h3>صحن معجنات مشكل</h3>
+                    <p>مجموعة من الفطائر المتنوعة المحشوة باللحم والخضار والتوابل</p>
+                </div>
+                <div class="price">12 ريال</div>
+            </div>
+        
+            <div class="menu-item">
+                <img src="https://d2wdttfod93r0n.cloudfront.net/Recipes/Spinach-and-Feta-Sambousa3212024101259AM.jpg" alt="سمبوسك">
+                <div class="details">
+                    <h3>صحن سمبوسة مشكل</h3>
+                    <p>مجموعة متنوعة من السمبوسك المحشي باللحم والدجاج والخضار</p>
+                </div>
+                <div class="price">16 ريال</div>
+            </div>
+        
+            <div class="menu-item">
+                <img src="https://cdn.salla.sa/NrGOe/4Ddvpu5QkpWo95wBHVtoRpOIoxD0EYMZpWge7G4w.jpg" alt="سمبوسك">
+                <div class="details">
+                    <h3>مكسرات علبة</h3>
+                    <p>علبة مكسرات مشكلة من اللوز والكاجو والفستق</p>
+                </div>
+                <div class="price">7 ريال</div>
+            </div>
+        
+            <!-- Add more salty food items here -->
+        </div>
+
+        <div id="sweet" class="menu-section menu" style="display: none;">
+            <div class="menu-item">
+                <img src="https://cdn.salla.sa/wowBN/bLRiJo5rO5fB0Soy2tBPtKzAUxVRXQhaAQxMXjvr.jpg" alt="كنافة">
+                <div class="details">
+                    <h3>معمول شرقي (صحن 6 حبات)</h3>
+                    <p>معمول طازج ولذيذ</p>
+                </div>
+                <div class="price">18 ريال</div>
+            </div>
+
+            <div class="menu-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9c207BUlfnvhVfE4sYXwbD1DNA1pCZ5EjcA&s" alt="كنافة">
+                <div class="details">
+                    <h3>باخمري (صحن 4 حبات)</h3>
+                    <p>طرية وشهية</p>
+                </div>
+                <div class="price">7 ريال</div>
+            </div>
+
+            <div class="menu-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1CkNhLfbUKnQ57vpqE2rDDH_jrP1I6HVO5w&s" alt="كنافة">
+                <div class="details">
+                    <h3>حيسة</h3>
+                    <p>حيسة المدينة الشهيرة</p>
+                </div>
+                <div class="price">6 ريال</div>
+            </div>
+
+            <div class="menu-item">
+                <img src="https://static.webteb.net/images/content/ramadanrecipe_recipe_1281_41451b1c1cb-d9f3-4a2c-b8a2-fa6f98e345c9.jpg" alt="كنافة">
+                <div class="details">
+                    <h3>كوكيز</h3>
+                    <p>🍪 🍪 🍪</p>
+                </div>
+                <div class="price">10 ريال</div>
+            </div>
+            <!-- Add more sweet food items here -->
+        </div>
+    </div>
+</body>
+</html>
