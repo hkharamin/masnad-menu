@@ -368,49 +368,62 @@
 
     {
         section: 'sweets',
-        name: 'معمول شرقي (صحن 6 حبات)',
+        name: 'ماجك التمر وجوز الهند',
         // description: '15 سعرة حرارية',
         prices: [
-            { label: 'صحن', price: 'SR 18.00' }
+            { label: 'قطعة', price: 'SR 10.00' }
         ],
-        image : "https://cdn.salla.sa/wowBN/bLRiJo5rO5fB0Soy2tBPtKzAUxVRXQhaAQxMXjvr.jpg"
     },
     {
         section: 'sweets',
-        name: 'باخمري (صحن 4 حبات)',
-        // description: 'سعرة حرارية',
+        name: 'تارت القشد',
+        // description: '15 سعرة حرارية',
         prices: [
-            { label: 'صحن', price: 'SR 7.00' }
+            { label: 'قطعة', price: 'SR 7.00' }
         ],
-        image : "https://img-global.cpcdn.com/recipes/db95161404f5374a/680x482cq70/%D8%A7%D9%84%D8%B5%D9%88%D8%B1%D8%A9-%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3%D9%8A%D8%A9-%D9%84%D9%88%D8%B5%D9%81%D8%A9%D8%A8%D8%A7%D8%AE%D9%85%D8%B1%D9%8A.jpg"
     },
     {
         section: 'sweets',
-        name: 'فتة تمر جنوبية',
-        // description: 'سعرة حرارية',
+        name: 'تشيز تشوكلت',
+        // description: '15 سعرة حرارية',
         prices: [
-            { label: 'صحن', price: 'SR 7.00' }
+            { label: 'قطعة', price: 'SR 19.00' }
         ],
-        image : "https://modo3.com/thumbs/fit630x300/137555/1595763696/%D8%B7%D8%B1%D9%8A%D9%82%D8%A9_%D8%A7%D9%84%D9%81%D8%AA%D8%A9_%D8%A8%D8%A7%D9%84%D8%B3%D9%85%D9%86_%D9%88%D8%A7%D9%84%D8%B9%D8%B3%D9%84.jpg"
     },
     {
         section: 'sweets',
-        name: 'حيسة',
-        // description: 'سعرة حرارية',
+        name: 'تشيز كراميل',
+        // description: '15 سعرة حرارية',
         prices: [
-            { label: '', price: 'SR 6.00' }
+            { label: 'قطعة', price: 'SR 19.00' }
         ],
-        image : "https://saudipedia.com/saudipedia/uploads/images/2023/07/21/61390.jpg"
     },
     {
         section: 'sweets',
-        name: 'كوكيز',
-        // description: 'سعرة حرارية',
+        name: 'تشيز البقلاوة',
+        // description: '15 سعرة حرارية',
         prices: [
-            { label: '', price: 'SR 10.00' }
+            { label: 'قطعة', price: 'SR 19.00' }
         ],
-        image : "https://www.bhg.com/thmb/ARwlwRFvxK4g-TYSKLiuDy3y8T4=/4000x0/filters:no_upscale():strip_icc()/bhg-recipe-cookies-food-processor-chocolate-chip-cookies-Hero-01-5b0c046d2a3d4328b52b28f2a5135c8b.jpg"
     },
+    {
+        section: 'sweets',
+        name: 'مفن برتقال',
+        // description: '15 سعرة حرارية',
+        prices: [
+            { label: 'قطعة', price: 'SR 12.00' }
+        ],
+    },
+    {
+        section: 'sweets',
+        name: 'معمول شرقي',
+        // description: '15 سعرة حرارية',
+        prices: [
+            { label: 'قطعة', price: 'SR 11.00' }
+        ],
+    },
+
+
 
 
 
@@ -548,12 +561,21 @@
                     details.appendChild(note);
                 }
 
-                const image = document.createElement('img');
-                image.src = item.image;
-                image.alt = item.name;
+
+                
+                
 
                 menuItem.appendChild(details);
-                menuItem.appendChild(image);
+
+                let image;
+                if (item.image)
+                {
+                    image = document.createElement('img');
+                    image.src = item.image;
+                    image.alt = item.name;
+                    menuItem.appendChild(image);
+                }
+               
 
                 return menuItem;
             }
